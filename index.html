@@ -1,0 +1,419 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
+    <!--<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">-->
+    <title>Fingerlings</title>
+    <link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+    </script>
+    <script src="scripts/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <div id="alert">
+        <p>Сообщение было отправлено!</p>
+    </div>
+    <div id="privacy-policy">
+        <p>
+            <span id="close-privacy-policy" class="close-button" onclick="hidePivacyPolicy()"></span>
+            <b>Политика конфиденциальности</b> <br /><br />
+            Защита личных данных: <br />
+            Для защиты ваших личных данных у нас внедрен ряд средств защиты, которые действуют при введении, передаче или работе с вашими личными данными.<br /><br />
+            Защита Разглашение личных сведений и передача этих сведений третьим лицам:<br /><br />
+            Ваши личные сведения могут быть разглашены нами только в том случае это необходимо для:<br />
+            -- обеспечения соответствия предписаниям закона или требованиям судебного процесса в нашем отношении;<br />
+            -- защиты наших прав или собственности; <br />
+            -- принятия срочных мер по обеспечению личной безопасности наших сотрудников или потребителей предоставляемых им услуг,
+
+            а также обеспечению общественной безопасности. Личные сведения, полученные в наше распоряжение при регистрации,
+
+            могут передаваться третьим организациям и лицам, состоящим с нами в партнерских отношениях для улучшения качества оказываемых услуг.<br />
+            Эти сведения не будут использоваться в каких-либо иных целях, кроме перечисленных выше.<br />
+            Адрес электронной почты, предоставленный вами при регистрации может использоваться для отправки вам сообщений или уведомлений об изменениях,
+
+            связанных с вашей заявкой, а также рассылки сообщений о происходящих в компании событиях и изменениях, важной информации.
+        </p>
+    </div>
+    <div id="callback">
+        <div class="container">
+            <span id="close-callback-form" class="close-button"></span>
+            <h1 class="alert">Поля должны быть заполнены!</h1>
+            <form>
+                <h1>Обратный звонок</h1>
+
+                <div class="input-container">
+                    <p>
+                        <img src="img/form_face.png" alt="face" />
+                        <input id="callbackName" type="text" placeholder="Введите ваше имя"
+                               data-min-length="2" data-max-length="50" />
+                    </p>
+                    <p>
+                        <img src="img/form_phone.png" alt="face" />
+                        <input id="callbackPhone" type="text" name="phone" placeholder="+7(XXX) XXX-XXXX" />
+                    </p>
+                </div>
+                <div id="send-callback" class="button" ">отправить</div>
+            </form>
+        </div>
+    </div>
+    <div id="reviewForm">
+        <div class="container">
+            <span id="close-review-form" class="close-button" onclick="hideReviewFrom()"></span>
+            <h1>Оставить отзыв</h1>
+
+            <h1 class="alert">Поля должны быть заполнены!</h1>
+            <form>
+                <p>
+                    <img src="img/form_face.png" alt="face" />
+                    <input id="reviewerName" type="text" placeholder="Введите ваше имя"
+                           data-min-length="2" data-max-length="50" />
+                </p>
+                <p>
+                    <img src="img/form_phone.png" alt="face" />
+                    <input id="reviewerCity" type="text" placeholder="номер телефона" />
+                </p>
+                <p>
+                    <img src="img/review.png" alt="face" />
+                    <textarea id="reviewerMessage" placeholder="оставить отзыв" rows="5" cols="50"></textarea>
+                </p>
+            </form>
+            <div id="send-review" class="button" onclick="leaveReview()">отправить</div>
+        </div>
+    </div>
+    <div id="order">
+        <div class="container">
+            <span id="close-callback-form" class="close-button" onclick="hideOrder()"></span>
+            <h1 class="alert">Поля должны быть заполнены!</h1>
+            <form>
+                <h1>Конструктор "Magic Tracks"</h1>
+
+                <p>
+                    <img src="img/form_face.png" alt="face" />
+                    <input id="customerName2" type="text" placeholder="Введите ваше имя"
+                           data-min-length="2" data-max-length="50" />
+                </p>
+                <p>
+                    <img src="img/form_phone.png" alt="face" />
+                    <input id="customerPhone2" type="text" placeholder="+7(XXX) XXX-XXXX" />
+                </p>
+                <select id="goodsFooter">
+                    <option value="" disabled selected>Выберете свой набор</option>
+                    <option data-price="1200" value="Зои">Зои</option>
+                    <option data-price="1200" value="Софи">Софи</option>
+                    <option data-price="1200" value="Борис">Борис</option>
+                    <option data-price="1290" value="Белла">Белла</option>
+                    <option data-price="1200" value="Миа">Миа</option>
+                    <option data-price="1290" value="Фин">Фин</option>
+                </select>
+                <div class="button" onclick="sendOrderFooter(); ">заказать</div>
+            </form>
+        </div>
+    </div>
+
+    <div id="orderForm">
+        <div class="container">
+            <h1>Оформление заказа</h1>
+            <span id="close-callback-form" class="close-button" onclick="hideOrderForm()"></span>
+
+            <h1 class="alert">Поля должны быть заполнены!</h1>
+            <form>
+                <p>
+                    <img src="img/form_face.png" alt="face" />
+                    <input id="customerName" type="text" placeholder="Введите ваше имя"
+                           data-min-length="2" data-max-length="50" />
+                </p>
+                <p>
+                    <img src="img/form_phone.png" alt="face" />
+                    <input id="customerPhone" type="text" placeholder="+7(XXX) XXX-XXXX" />
+                </p>
+                <p>
+                    <img src="img/box.png" alt="face" />
+                    <input id="customerAddress" type="text" placeholder="Ваш адрес" />
+                </p>
+                <select id="goods" onchange="handleTrackSelected(event)">
+                    <option data-price="1200" value="Зои">Зои</option>
+                    <option data-price="1200" value="Софи">Софи</option>
+                    <option data-price="1200" value="Борис">Борис</option>
+                    <option data-price="1290" value="Белла">Белла</option>
+                    <option data-price="1200" value="Миа">Миа</option>
+                    <option data-price="1290" value="Фин">Фин</option>
+                </select>
+                <div class="total-price">
+                    <div id="cart">
+                        <img src="img/cart.png" alt="cart" />
+                        <span id="minus" onclick="decQuantity()"></span>
+                        <p><span id="quantity">1</span> ШТ.</p>
+                        <span id="plus" onclick="incQuantity()"></span>
+                    </div>
+                    <div id="total">
+                        <p>сумма заказа</p>
+                        <h1><span id="amount">x xxx</span> руб.</h1>
+                    </div>
+                </div>
+            </form>
+            <div id="send-order" class="button" onclick="sendOrder(event);" href="">отправить</div>
+        </div>
+    </div>
+
+    <header>
+        <img src="img/logo.png" alt="logo" />
+        <div class="text-container">
+            <h1>ИНТЕРАКТИВНЫЕ ОБЕЗЬЯНКИ FINGERLINGS<br /> <u>100% ОРИГИНАЛ</u></h1>
+            <h2>ФИНАЛЬНАЯ РАСПРОДАЖА! <br /> <s>110$</s> 49$</h2>
+            <div id="send-order" class="button" onclick="showOrder();" href="">выбрать обезьянку</div>
+        </div>
+    </header>
+
+    <div class="fingerlings">
+        <img src="img/monkeys.jpg" alt="monkeys" />
+
+        <ul>
+            <li>СЧАСТЬЕ ДЛЯ ДЕТЕЙ</li>
+            <li>нтерактивная ручная обезьянка - милая и<br /> забавная, она обязательно удивит вас и<br /> вашего малыша!</li>
+            <li>
+                Обезьянка, как настоящая, цепляется за ваш<br /> палец или за другую поверхность.<br />
+                Выполняет акробатические трюки, издает<br /> "прикольные" звуки, дарит воздушные<br /> поцелуи и укладывается спать прямо у вас на<br /> ручках!
+            </li>
+            <li>А если вы являетесь обладателем нескольких<br /> обезьянок, то вы будете приятно удивлены<br /> их диалогом между собой.</li>
+        </ul>
+    </div>
+
+    <div class="features">
+        <img class="leaves" src="img/leaves.png" alt="leaves" />
+        <h1>Что умеют обезьянки Fingerlings</h1>
+        <div class="container">
+            <ul class="describe">
+                <li>
+                    <p>В ответ на прикосновения выполнять<br /> более 40 различных действий и издавать<br /> 50 уникальных звуковых сигналов.</p>
+                </li>
+                <li>
+                    <p>Развивают ребенка, его<br /> пространственное мышление и интерес<br /> ко всему новому.</p>
+                </li>
+                <li>
+                    <p>Взрослые могут присоеденится к игре и<br /> проводить весело время вместе со<br /> своими детьми.</p>
+                </li>
+                <li>
+                    <p>В игровом процессе могут участвовать<br /> несколько детей, что повысит<br /> коммуникабельность ребёнка.</p>
+                </li>
+            </ul>
+
+            <img class="kids" src="img/kids.png" alt="kids" />
+        </div>
+    </div>
+
+    <div class="choose-track">
+        <ul class="items">
+            <li class="item discount-mark">
+                <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
+                <div class="price">
+                    <h3>Зои</h3>
+                    <p>
+                        Гимнастка, обожающая висеть вверх ногами<br />
+                        и очень любит обниматься.
+                    </p>
+                    <h1>1200 руб.</h1>
+                </div>
+
+                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+            </li>
+            <li class="item discount-mark">
+                <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
+                <div class="price">
+                    <h3>Софи</h3>
+                    <p>
+                        Гимнастка, обожающая висеть вверх ногами<br />
+                        и очень любит обниматься.
+                    </p>
+                    <h1>1200 руб.</h1>
+                </div>
+
+                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+            </li>
+            <li class="item">
+                <img class="item-photo" src="MainPic/boris.png" alt="item photo" />
+                <div class="price">
+                    <h3>Борис</h3>
+                    <p>
+                        Настоящий весельчак, способен поднять<br /> настроение кому угодно.
+                    </p>
+                    <h1>1200 руб.</h1>
+                </div>
+
+                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+            </li>
+        </ul>
+
+        <ul class="items">
+            <li class="item discount-mark">
+                <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
+                <div class="price">
+                    <h3>Белла</h3>
+                    <p>
+                        Гимнастка, обожающая висеть вверх ногами<br />
+                        и очень любит обниматься.
+                    </p>
+                    <h1>1290 руб.</h1>
+                </div>
+
+                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+            </li>
+            <li class="item discount-mark">
+                <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
+                <div class="price">
+                    <h3>Миа</h3>
+                    <p>
+                        Гимнастка, обожающая висеть вверх ногами<br />
+                        и очень любит обниматься.
+                    </p>
+                    <h1>1200 руб.</h1>
+                </div>
+
+                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+            </li>
+            <li class="item">
+                <img class="item-photo" src="MainPic/boris.png" alt="item photo" />
+                <div class="price">
+                    <h3>Фин</h3>
+                    <p>
+                        Настоящий весельчак, способен поднять<br /> настроение кому угодно.
+                    </p>
+                    <h1>1290 руб.</h1>
+                </div>
+
+                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="video">
+        <img class="leaves-left" src="img/leaves_left.png" alt="leaves" />
+        <script type="text/javascript">
+            var tag = document.createElement('script');
+
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            var player;
+
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('ytplayer', {
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+            }
+
+            function onPlayerReady() {
+                player.playVideo();
+                // Mute!
+                player.mute();
+            }
+        </script>
+
+        <div>
+            <h1>Небольшой видео ролик про <span>обезьянку Фингерлингс</span></h1>
+            <h2>Дети хотят домашнего питомца? Обезьянка - идеальный вариант!</h2>
+        </div>
+
+        <iframe id="ytplayer" type="text/html" width="725" height="408" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="reviews">
+        <h1>Отзывы заботливых родителей</h1>
+        <ul id="carousel">
+            <li>
+                <div class="person">
+                    <div class="photo"></div>
+                    <h6>Наталия<br /> <span>Москва</span></h6>
+                </div>
+                <div class="review">
+                    <p>Решили купить ребенку трассу для машинок, остановили своё внимание на " Magic tracks ". Дорога очень яркая, все детали светятся ярко в темноте, гоночная машинка смотрится особенно красиво, так как они оснащены яркими светодиодами.</p>
+                </div>
+            </li>
+            <li>
+                <div class="person">
+                    <div class="photo1"></div>
+                    <h6>Оксана<br /> <span>Москва</span></h6>
+                </div>
+                <div class="review">
+                    <p>Купила своему ребенку гоночный трек. Легко собирается, даже сам сын справился. Но ребеноку младшего возраста прийдется немного помочь. Достаточно крепко держаться между собой детальки, как показано в рекламе без проблем гнется в разные стороны и можно строить разные подъемы, спуски и импровизировать. </p>
+                </div>
+            </li>
+            <li>
+                <div class="person">
+                    <div class="photo2"></div>
+                    <h6>Алексей<br /> <span>Москва</span></h6>
+                </div>
+                <div class="review">
+                    <p>Мы купили сразу два набора, Magic tracks Дрифт и Magic tracks Вираж. Игрушка обалденная, светится мигает, куча вариантов что с ней можно сделать. В общем ребенок доволен не реально. </p>
+                </div>
+            </li>
+        </ul>
+        <div class="button" onclick="showReviewForm()">оставить отзыв</div>
+        <div id="next" onclick="turnRight()"></div>
+        <div id="prev" onclick="turnLeft()"></div>
+    </div>
+
+    <div class="order">
+        <div>
+            <h1>Как заказать обезьянку Фингерлингс?</h1>
+            <h2>Для заказа Вам необходимо сделать 4 простых шага</h2>
+        </div>
+
+        <ul>
+            <li>
+                <img src="img/model.png" alt="model" />
+                <h1>Выбирайте модель</h1>
+                <p>
+                    Выбирайте обезьянку и<br /> нажимайте "купить обезьянку!"
+                </p>
+            </li>
+            <li>
+                <img src="img/order.png" alt="order" />
+                <h1>Оформляйте заказ</h1>
+                <p>
+                    Заполните поля формы и<br />
+                    ждите звонка
+                </p>
+            </li>
+            <li>
+                <img src="img/phone.png" alt="phone" />
+                <h1>Быстрое подтверждение</h1>
+                <p>
+                    Специалист позвонит Вам для<br /> подтверждения заказа и<br /> уточнения по имеющимся<br /> вопросам
+                </p>
+            </li>
+            <li>
+                <img src="img/goods.png" alt="goods" />
+                <h1>Получайте заказ</h1>
+                <p>
+                    Курьер вручит Вам его лично в<br /> руки или Вы самостоятельно<br /> заберете его с Вашего почтового<br /> отделения
+                </p>
+            </li>
+        </ul>
+    </div>
+
+
+    <footer>
+        <h1>Контакты</h1>
+        <h2>Мы работаем с 9:00 до 21:00 без выходных.</h2>
+        <h3>+38 (050) 948-88-63</h3>
+        <h3>+38 (073) 108-64-87</h3>
+    </footer>
+
+    <!-- BEGIN JIVOSITE CODE -->
+    <script type='text/javascript'>
+        (function () { var widget_id = 'GjzMIbUrL7'; var d = document; var w = window; function l() { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/' + widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss); } if (d.readyState == 'complete') { l(); } else { if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })();
+    </script>
+    <!-- END JIVOSITE CODE -->
+</body>
+</html>
