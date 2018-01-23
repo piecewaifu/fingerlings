@@ -73,8 +73,6 @@ window.onload = function () {
     //    li.id = i + 1;
     //}
 
-    startVideoLoading();
-
     slides = document.querySelectorAll('.slides .slide');
     currentSlide = 0;
     slideInterval = setInterval(nextSlide, 4000);
@@ -207,7 +205,7 @@ function sendOrder() {
         "amount": amount
     });
 
-
+	yaCounter47370118.reachGoal('buy'); 
 
     showAlert();
     setTimeout(hideAlert, 7000);
@@ -404,25 +402,25 @@ function sendCallback() {
     return true;
 }
 
-function startVideoLoading() {
-    var id = "video-container";
+// function startVideoLoading() {
+    // var id = "video-container";
 
-    var container = document.getElementById(id);
-    if (!container) {
-        console.error("Element #" + id + " is not found by startVideoLoading()");
-        return;
-    }
+    // var container = document.getElementById(id);
+    // if (!container) {
+        // console.error("Element #" + id + " is not found by startVideoLoading()");
+        // return;
+    // }
 
-    setTimeout(function () {
+    // setTimeout(function () {
 
-        var iframe = document.createElement("iframe");
-        iframe.width = 470;
-        iframe.height = 250;
-        iframe.src = "https://www.youtube.com/embed/lnErU8nwQm4";
+        // var iframe = document.createElement("iframe");
+        // iframe.width = 470;
+        // iframe.height = 250;
+        // iframe.src = "https://www.youtube.com/embed/lnErU8nwQm4";
 
-        container.appendChild(iframe);
-    }, 11);
-}
+        // container.appendChild(iframe);
+    // }, 11);
+// }
 
 function attachClickHandler(id, handler) {
     var element = document.getElementById(id);

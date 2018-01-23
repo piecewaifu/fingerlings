@@ -375,6 +375,25 @@ header {
     width: 240px;
 }
 
+.gallery {
+	width: 100%;
+	height: 345px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.multiple-items {
+	width: 1025px;
+	height: 75%;
+	padding-left: 25px;
+}
+
+	.multiple-items .slick-dots {
+		display: flex;
+		justify-content: center;
+		margin-left: -25px;
+	}
 
 .button {
     width: 260px;
@@ -1055,9 +1074,9 @@ footer {
 
 .close-button {
     display: block;
-    width: 15px;
-    height: 15px;
-    background: url(img/close_form.png);
+    width: 30px;
+    height: 30px;
+    background: url(img/close_white.png);
     z-index: 9999999999999999;
     position: absolute;
     top: 17px;
@@ -1104,6 +1123,7 @@ footer {
 #callback h1, #orderForm h1, #reviewForm h1, #order h1 {
     font-family: SFUIDisplayRegular;
     font-size: 26px;
+	color: white;
 }
 
 #callback .container {
@@ -1180,6 +1200,9 @@ footer {
         justify-content: space-around;
         align-items: center;
         position: relative;
+		border-radius: 25px;
+		background: url(img/order_bg.jpg);
+		background-position: center;
     }
 
 .total-price {
@@ -1204,6 +1227,7 @@ footer {
     #cart p {
         font-family: SFUIDisplayRegular;
         font-size: 16px;
+		color: white;
     }
 
 #minus {
@@ -1228,6 +1252,7 @@ footer {
     #total p {
         font-family: SFUIDisplayBold;
         font-size: 16px;
+		color: white;
     }
 
     #total h1 {
@@ -1614,4 +1639,13 @@ input::placeholder, textarea::placeholder {
         width: 100%;
     }
 
+	.gallery .multiple-items {
+		width: 100%;
+		padding: 0;
+	}
+	
+		.multiple-items .slick-dots {
+			display: flex;
+			justify-content: center;
+		}
 }

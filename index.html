@@ -3,6 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+	
+	
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+	
     <script type="text/javascript" src="script.js"></script>
     <!--<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">-->
     <title>Fingerlings</title>
@@ -15,33 +20,45 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+		(function (d, w, c) {
+			(w[c] = w[c] || []).push(function() {
+				try {
+					w.yaCounter47370118 = new Ya.Metrika2({
+						id:47370118,
+						clickmap:true,
+						trackLinks:true,
+						accurateTrackBounce:true,
+						webvisor:true
+					});
+				} catch(e) { }
+			});
+
+			var n = d.getElementsByTagName("script")[0],
+				s = d.createElement("script"),
+				f = function () { n.parentNode.insertBefore(s, n); };
+			s.type = "text/javascript";
+			s.async = true;
+			s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+			if (w.opera == "[object Opera]") {
+				d.addEventListener("DOMContentLoaded", f, false);
+			} else { f(); }
+		})(document, window, "yandex_metrika_callbacks2");
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/47370118" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+		
+	<script type="text/javascript" src="slick/slick.min.js"></script>
 </head>
 <body>
 
     <div id="alert">
         <p>Сообщение было отправлено!</p>
     </div>
-    <div id="privacy-policy">
-        <p>
-            <span id="close-privacy-policy" class="close-button" onclick="hidePivacyPolicy()"></span>
-            <b>Политика конфиденциальности</b> <br /><br />
-            Защита личных данных: <br />
-            Для защиты ваших личных данных у нас внедрен ряд средств защиты, которые действуют при введении, передаче или работе с вашими личными данными.<br /><br />
-            Защита Разглашение личных сведений и передача этих сведений третьим лицам:<br /><br />
-            Ваши личные сведения могут быть разглашены нами только в том случае это необходимо для:<br />
-            -- обеспечения соответствия предписаниям закона или требованиям судебного процесса в нашем отношении;<br />
-            -- защиты наших прав или собственности; <br />
-            -- принятия срочных мер по обеспечению личной безопасности наших сотрудников или потребителей предоставляемых им услуг,
 
-            а также обеспечению общественной безопасности. Личные сведения, полученные в наше распоряжение при регистрации,
-
-            могут передаваться третьим организациям и лицам, состоящим с нами в партнерских отношениях для улучшения качества оказываемых услуг.<br />
-            Эти сведения не будут использоваться в каких-либо иных целях, кроме перечисленных выше.<br />
-            Адрес электронной почты, предоставленный вами при регистрации может использоваться для отправки вам сообщений или уведомлений об изменениях,
-
-            связанных с вашей заявкой, а также рассылки сообщений о происходящих в компании событиях и изменениях, важной информации.
-        </p>
-    </div>
     <div id="callback">
         <div class="container">
             <span id="close-callback-form" class="close-button"></span>
@@ -60,10 +77,11 @@
                         <input id="callbackPhone" type="text" name="phone" placeholder="+7(XXX) XXX-XXXX" />
                     </p>
                 </div>
-                <div id="send-callback" class="button" ">отправить</div>
+                <div id="send-callback" class="button">отправить</div>
             </form>
         </div>
     </div>
+	
     <div id="reviewForm">
         <div class="container">
             <span id="close-review-form" class="close-button" onclick="hideReviewFrom()"></span>
@@ -88,12 +106,14 @@
             <div id="send-review" class="button" onclick="leaveReview()">отправить</div>
         </div>
     </div>
+	
     <div id="order">
         <div class="container">
-            <span id="close-callback-form" class="close-button" onclick="hideOrder()"></span>
+            <span class="close-button" onclick="hideOrder()"></span>
             <h1 class="alert">Поля должны быть заполнены!</h1>
+			<h1>Обезьянки Фингерлингс</h1>
             <form>
-                <h1>Конструктор "Magic Tracks"</h1>
+                
 
                 <p>
                     <img src="img/form_face.png" alt="face" />
@@ -121,7 +141,7 @@
     <div id="orderForm">
         <div class="container">
             <h1>Оформление заказа</h1>
-            <span id="close-callback-form" class="close-button" onclick="hideOrderForm()"></span>
+            <span class="close-button" onclick="hideOrderForm()"></span>
 
             <h1 class="alert">Поля должны быть заполнены!</h1>
             <form>
@@ -159,16 +179,26 @@
                     </div>
                 </div>
             </form>
-            <div id="send-order" class="button" onclick="sendOrder(event);" href="">отправить</div>
+            <div id="send-order" class="button" onclick="sendOrder(event);">отправить</div>
         </div>
     </div>
 
+	<div id="pre-order">
+		<div class="container">
+			<div class="product-gallery">
+			</div>
+			<div class="product-info">
+			</div>
+		</div>
+	</div>
+	
     <header>
         <img src="img/logo.png" alt="logo" />
         <div class="text-container">
             <h1>ИНТЕРАКТИВНЫЕ ОБЕЗЬЯНКИ FINGERLINGS<br /> <u>100% ОРИГИНАЛ</u></h1>
             <h2>ФИНАЛЬНАЯ РАСПРОДАЖА! <br /> <s>110$</s> 49$</h2>
-            <div id="send-order" class="button" onclick="showOrder();" href="">выбрать обезьянку</div>
+            <div class="button" onclick="showOrder();">выбрать обезьянку</div>
+			<!-- id="send-order"  -->
         </div>
     </header>
 
@@ -185,7 +215,7 @@
             <li>А если вы являетесь обладателем нескольких<br /> обезьянок, то вы будете приятно удивлены<br /> их диалогом между собой.</li>
         </ul>
     </div>
-
+	
     <div class="features">
         <img class="leaves" src="img/leaves.png" alt="leaves" />
         <h1>Что умеют обезьянки Fingerlings</h1>
@@ -222,7 +252,7 @@
                     <h1>1200 руб.</h1>
                 </div>
 
-                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
             <li class="item discount-mark">
                 <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
@@ -235,7 +265,7 @@
                     <h1>1200 руб.</h1>
                 </div>
 
-                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
             <li class="item">
                 <img class="item-photo" src="MainPic/boris.png" alt="item photo" />
@@ -247,7 +277,7 @@
                     <h1>1200 руб.</h1>
                 </div>
 
-                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
         </ul>
 
@@ -263,7 +293,7 @@
                     <h1>1290 руб.</h1>
                 </div>
 
-                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
             <li class="item discount-mark">
                 <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
@@ -276,7 +306,7 @@
                     <h1>1200 руб.</h1>
                 </div>
 
-                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
             <li class="item">
                 <img class="item-photo" src="MainPic/boris.png" alt="item photo" />
@@ -288,45 +318,71 @@
                     <h1>1290 руб.</h1>
                 </div>
 
-                <div class="button"><img src="img/shopping_cart.png" /> купить обезьянку</div>
+                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
         </ul>
     </div>
 
     <div class="video">
         <img class="leaves-left" src="img/leaves_left.png" alt="leaves" />
-        <script type="text/javascript">
-            var tag = document.createElement('script');
-
-            tag.src = "https://www.youtube.com/iframe_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-            var player;
-
-            function onYouTubeIframeAPIReady() {
-                player = new YT.Player('ytplayer', {
-                    events: {
-                        'onReady': onPlayerReady
-                    }
-                });
-            }
-
-            function onPlayerReady() {
-                player.playVideo();
-                // Mute!
-                player.mute();
-            }
-        </script>
-
         <div>
             <h1>Небольшой видео ролик про <span>обезьянку Фингерлингс</span></h1>
             <h2>Дети хотят домашнего питомца? Обезьянка - идеальный вариант!</h2>
         </div>
 
-        <iframe id="ytplayer" type="text/html" width="725" height="408" src="" frameborder="0" allowfullscreen></iframe>
+        <iframe id="ytplayer" width="725" height="408" src="https://www.youtube.com/embed/fvB79rpIHvc" frameborder="0" allowfullscreen></iframe>
     </div>
 
+	<div class="gallery">
+		<ul class="multiple-items">
+			<li class="gallery-item"><img src="gallery/1.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/2.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/3.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/4.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/1.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/2.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/3.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/4.jpg" alt="img" /></li>
+		</ul>
+    </div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('.multiple-items').slick({
+			infinite: true,
+			slidesToShow: 4,
+			slidesToScroll: 3,
+			dots: true,
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3,
+						infinite: true,
+						dots: true
+					}
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}	
+				}
+			]
+		});
+	});
+	</script>
+		
     <div class="reviews">
         <h1>Отзывы заботливых родителей</h1>
         <ul id="carousel">
@@ -417,3 +473,4 @@
     <!-- END JIVOSITE CODE -->
 </body>
 </html>
+
