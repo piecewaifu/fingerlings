@@ -135,6 +135,8 @@
     <div id="orderForm">
         <div class="container">
             <h1>Оформление заказа</h1>
+            <h1>Товар: <span class="name"></span></h1>
+            <h1>Цена: <span class="price"></span></h1>
             <span class="close-button" onclick="hideOrderForm()"></span>
             <h1 class="alert">Поля должны быть заполнены!</h1>
             <form>
@@ -151,20 +153,13 @@
                     <img src="img/box.png" alt="face" />
                     <input id="customerAddress" type="text" placeholder="Ваш адрес" />
                 </p>
-                <select id="goods" onchange="handleTrackSelected(event)">
-                    <option data-price="1890" value="Зои">Зои</option>
-                    <option data-price="1890" value="Софи">Софи</option>
-                    <option data-price="1890" value="Борис">Борис</option>
-                    <option data-price="1890" value="Белла">Белла</option>
-                    <option data-price="1890" value="Миа">Миа</option>
-                    <option data-price="1890" value="Фин">Фин</option>
-                </select>
+
                 <div class="total-price">
                     <div id="cart">
                         <img src="img/cart.png" alt="cart" />
-                        <span id="minus" onclick="decQuantity()"></span>
-                        <p><span id="quantity">1</span> ШТ.</p>
-                        <span id="plus" onclick="incQuantity()"></span>
+                        <span id="minus"></span>
+                        <p><span id="quantity">0</span> ШТ.</p>
+                        <span id="plus"></span>
                     </div>
                     <div id="total">
                         <p>сумма заказа</p>
@@ -172,7 +167,7 @@
                     </div>
                 </div>
             </form>
-            <div id="send-order" class="button" onclick="sendOrder(event);">отправить</div>
+            <div id="send-order" class="button send">отправить</div>
         </div>
     </div>
 
@@ -223,7 +218,7 @@
 
                 <h1 class="price">Цена: 3132 руб</h1>
 
-                <div class="button" onclick="showOrderForm()"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
+                <div class="button buy"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </div>
 
             <span class="close-button" onclick="hidePreOrder()"></span>

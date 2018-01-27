@@ -177,66 +177,95 @@ function leaveReview() {
     hideReviewFrom();
 }
 
-function sendOrder() {
-    event.preventDefault();
-    var quantity = parseInt(document.getElementById("quantity").innerHTML);
-    var selected = document.getElementById("goods").selectedOptions[0];
-    var trackName = selected.value;
-    var priceString = selected.dataset.price;
-    var price = parseInt(priceString.replace(" ", ""))
-    var amount = (quantity * price / 1000).toFixed(3).replace(".", " ") + " руб.";
-    var customerName = getValidImputValue("customerName");
-    var customerPhone = getValidImputValue("customerPhone");
-    var customerAddress = document.getElementById("customerAddress").value;
-
-    if (!customerName || !customerPhone) {
-        document.getElementsByClassName("alert")[3].style.opacity = "1";
-        setTimeout(function () {
-            document.getElementsByClassName("alert")[3].style.opacity = "0";
-        }, 1500);
-        return;
-    }
-
-    var result = emailjs.send("gmail", "order", {
-        "customerName": customerName,
-        "customerPhone": customerPhone,
-        "customerAddress": customerAddress,
-        "trackName": trackName,
-        "price": price + " руб.",
-        "quantity": quantity + "шт.",
-        "amount": amount
-    });
-
-	yaCounter47370118.reachGoal('order');
-
-    showAlert();
-    setTimeout(hideAlert, 7000);
-    hideOrderForm();
-
-    return true;
-}
 
 function showOrder() {
     show('order', 'flex');
 }
 
-function showOrderForm(event) {
-    var button = event.target;
-    var li = button.parentNode;
-    var h3 = li.getElementsByTagName("h3")[0];
-    var trackName = h3.innerHTML;
+function showOrderForm(item) {
+    item.order.price = parseInt(item.price.replace(" ", ""));
+    item.order.quantity = 1;
 
-    var select = document.getElementById("goods");
-    for (var i = 0; i < select.length; i++) {
-        var option = select[i];
-        if (option.value === trackName) {
-            select.selectedIndex = i;
-            updateAmount();
-            break;
+    updateAmount(item.order);
+
+    $("#orderForm .name").text(item.name);
+    $("#orderForm .price").text(item.price);
+
+    $("#orderForm #minus").off().click(decQuantity);
+    $("#orderForm #plus").off().click(incQuantity);
+
+    $("#orderForm .send.button").click(handlSendOrderCLick);
+
+    show('orderForm', 'flex');
+    return;
+    //-----------------
+
+
+    function incQuantity() {
+        item.order.quantity++;
+        updateAmount(item.order);
+    }
+
+    function decQuantity() {
+        if (item.order.quantity > 1) {
+            item.order.quantity--;
+            updateAmount(item.order);
         }
     }
 
-    show('orderForm', 'flex');
+    function updateAmount(order) {
+        order.amount = order.price * order.quantity;
+
+        $("#orderForm #quantity").text(order.quantity);
+
+        var amountString = (order.amount / 1000).toFixed(3).replace(".", " ");
+        if(order.amount < 1000) {
+            amountString = amountString.replace("0 ", "");
+        }
+
+        $("#orderForm #amount").text(amountString);
+    }
+
+    function handlSendOrderCLick() {
+        if (sendOrder()) {
+            showAlert();
+            setTimeout(hideAlert, 7000);
+            hideOrderForm();
+            hidePreOrder();
+        }
+    }
+
+    function sendOrder() {
+        event.preventDefault();
+
+        var customerName = getValidImputValue("customerName");
+        var customerPhone = getValidImputValue("customerPhone");
+        var customerAddress = document.getElementById("customerAddress").value;
+
+        if (!customerName || !customerPhone) {
+            document.getElementsByClassName("alert")[3].style.opacity = "1";
+            setTimeout(function () {
+                document.getElementsByClassName("alert")[3].style.opacity = "0";
+            }, 1500);
+            return false;
+        }
+
+        var result = emailjs.send("gmail", "order", {
+            "customerName": customerName,
+            "customerPhone": customerPhone,
+            "customerAddress": customerAddress,
+            "trackName": item.name,
+            "price": item.order.price + " руб.",
+            "quantity": item.order.quantity + "шт.",
+            "amount": item.order.amount
+        });
+
+        yaCounter47370118.reachGoal('order');
+
+
+        return true;
+    }
+
 }
 
 function handleBuyButtonClick(event) {
@@ -244,7 +273,12 @@ function handleBuyButtonClick(event) {
         name: "",
         price: "",
         descriptionHTML: "",
-        images: []
+        images: [],
+        order: {
+            price: 0,
+            quantity: 0,
+            amount: 0
+        }
     };
 
     var $button = $(event.target);
@@ -288,14 +322,18 @@ function showPreOrder(item) {
         var $li = $("<li>");
         $li.append($image);
 
-        $sliderNav.append($li);
+        $sliderNav.append($li); 
     }
+
+    $("#pre-order .buy.button").click(function () {
+        showOrderForm(item);
+    });
 
     show('pre-order', 'flex');
 }
 
 function hidePreOrder() {
-	hide('pre-order');
+    hide('pre-order');
 }
 
 function hideOrderForm() {
@@ -312,48 +350,6 @@ function showReviewForm() {
 
 function hideReviewFrom() {
     hide('reviewForm');
-}
-
-function incQuantity() {
-    var element = document.getElementById("quantity");
-    var quantity = parseInt(element.innerHTML);
-    element.innerHTML = ++quantity;
-    updateAmount();
-}
-
-function decQuantity() {
-    var element = document.getElementById("quantity");
-    var quantity = parseInt(element.innerHTML);
-    if (quantity > 1) {
-        element.innerHTML = --quantity;
-        updateAmount();
-    }
-}
-
-function updateAmount() {
-    var quantity = parseInt(document.getElementById("quantity").innerHTML);
-    var selected = document.getElementById("goods").selectedOptions[0];
-    var trackName = selected.value;
-    var priceString = selected.dataset.price;
-    var price = parseInt(priceString.replace(" ", ""))
-
-    var amount = (quantity * price / 1000).toFixed(3).replace(".", " ");
-    amount = (quantity * price / 1000).toFixed(3).replace(/$0 /, "");
-    if(price < 1000) {
-        amount = (quantity * price / 1000).toFixed(3).replace("0.", "");
-    }
-    document.getElementById("amount").innerHTML = amount;
-}
-
-function handleTrackSelected(event) {
-    var selected = event.target.selectedOptions[0];
-    var trackName = selected.value;
-    var priceString = selected.dataset.price;
-    var price = parseInt(priceString.replace(" ", ""))
-    var customerName = document.getElementById("customerName").value;
-    var customerPhone = document.getElementById("customerPhone").value;
-
-    updateAmount();
 }
 
 function showCallbackForm() {
@@ -425,23 +421,23 @@ function sendCallback() {
 }
 
 // function startVideoLoading() {
-    // var id = "video-container";
+// var id = "video-container";
 
-    // var container = document.getElementById(id);
-    // if (!container) {
-        // console.error("Element #" + id + " is not found by startVideoLoading()");
-        // return;
-    // }
+// var container = document.getElementById(id);
+// if (!container) {
+// console.error("Element #" + id + " is not found by startVideoLoading()");
+// return;
+// }
 
-    // setTimeout(function () {
+// setTimeout(function () {
 
-        // var iframe = document.createElement("iframe");
-        // iframe.width = 470;
-        // iframe.height = 250;
-        // iframe.src = "https://www.youtube.com/embed/lnErU8nwQm4";
+// var iframe = document.createElement("iframe");
+// iframe.width = 470;
+// iframe.height = 250;
+// iframe.src = "https://www.youtube.com/embed/lnErU8nwQm4";
 
-        // container.appendChild(iframe);
-    // }, 11);
+// container.appendChild(iframe);
+// }, 11);
 // }
 
 function attachClickHandler(id, handler) {
