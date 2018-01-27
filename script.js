@@ -240,22 +240,28 @@ function showOrderForm(event) {
 }
 
 function handleBuyButtonClick(event) {
+    var item = {
+        name: "",
+        price: "",
+        descriptionHTML: "",
+        images: []
+    };
+
     var $button = $(event.target);
     var $item = $button.parent(".item");
-    var name = $item.find("h3").text();
-    var price = $item.find(".price").text();
+    item.name = $item.find("h3").text();
+    item.price = $item.find(".price").text();
 
-    var descriptionHTML = $item.find(".description").html();
-    descriptionHTML = descriptionHTML || " ";
+    item.descriptionHTML = $item.find(".description").html();
+    item.descriptionHTML = item.descriptionHTML || " ";
 
-    var images = [];
     var $images = $item.find(".images").children();
     for (var i = 0; i < $images.length; i++) {
         var $li = $images.eq(i);
-        images.push($li.text());
+        item.images.push($li.text());
     }
 
-    showPreOrder(name, descriptionHTML, images, price);
+    showPreOrder(item);
 }
 
 function handleImageClick(event) {
@@ -264,19 +270,19 @@ function handleImageClick(event) {
     $(".slider-for img").attr("src", image.attr("src"));
 }
 
-function showPreOrder(name, descriptionHTML, images, price) {
+function showPreOrder(item) {
     // returns true if user pressd buy btn. false if pressed close btn.
-    $("#pre-order .name").text(name);
-    $("#pre-order .description").html(descriptionHTML);
-    $("#pre-order .price").text(price);
+    $("#pre-order .name").text(item.name);
+    $("#pre-order .description").html(item.descriptionHTML);
+    $("#pre-order .price").text(item.price);
 
     var $sliderFor = $("#pre-order .slider-for").empty();
     var $sliderNav = $("#pre-order .slider-nav").empty();
 
-    $sliderFor.append("<li><img src='" + images[0] + "' alt='img' /></li>");
+    $sliderFor.append("<li><img src='" + item.images[0] + "' alt='img' /></li>");
 
-    for (var i = 0; i < images.length; i++) {
-        var $image = $("<img src='" + images[i] + "' alt='img' />");
+    for (var i = 0; i < item.images.length; i++) {
+        var $image = $("<img src='" + item.images[i] + "' alt='img' />");
         $image.click(handleImageClick);
 
         var $li = $("<li>");
