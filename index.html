@@ -57,27 +57,6 @@
     <div id="alert">
         <p>Сообщение было отправлено!</p>
     </div>
-    <div id="callback">
-        <div class="container">
-            <span id="close-callback-form" class="close-button"></span>
-            <h1 class="alert">Поля должны быть заполнены!</h1>
-            <form>
-                <h1>Обратный звонок</h1>
-                <div class="input-container">
-                    <p>
-                        <img src="img/form_face.png" alt="face" />
-                        <input id="callbackName" type="text" placeholder="Введите ваше имя"
-                               data-min-length="2" data-max-length="50" />
-                    </p>
-                    <p>
-                        <img src="img/form_phone.png" alt="face" />
-                        <input id="callbackPhone" type="text" name="phone" placeholder="+7(XXX) XXX-XXXX" />
-                    </p>
-                </div>
-                <div id="send-callback" class="button">отправить</div>
-            </form>
-        </div>
-    </div>
 
     <div id="reviewForm">
         <div class="container">
@@ -103,35 +82,6 @@
         </div>
     </div>
 
-    <div id="order">
-        <div class="container">
-            <span class="close-button" onclick="hideOrder()"></span>
-            <h1 class="alert">Поля должны быть заполнены!</h1>
-            <h1>Обезьянки Фингерлингс</h1>
-            <form>
-
-                <p>
-                    <img src="img/form_face.png" alt="face" />
-                    <input id="customerName2" type="text" placeholder="Введите ваше имя"
-                           data-min-length="2" data-max-length="50" />
-                </p>
-                <p>
-                    <img src="img/form_phone.png" alt="face" />
-                    <input id="customerPhone2" type="text" placeholder="+7(XXX) XXX-XXXX" />
-                </p>
-                <select id="goodsFooter">
-                    <option value="" disabled selected>Выберете свою обезьянку</option>
-                    <option data-price="1890" value="Зои">Зои</option>
-                    <option data-price="1890" value="Софи">Софи</option>
-                    <option data-price="1890" value="Борис">Борис</option>
-                    <option data-price="1890" value="Белла">Белла</option>
-                    <option data-price="1890" value="Миа">Миа</option>
-                    <option data-price="1890" value="Фин">Фин</option>
-                </select>
-                <div class="button" onclick="sendOrderFooter(); ">заказать</div>
-            </form>
-        </div>
-    </div>
     <div id="orderForm">
         <div class="container">
             <h1>Оформление заказа</h1>
@@ -225,12 +175,20 @@
         </li>
     </ul>
 
+    <div id="lightbox">
+        <div class="container">
+            <img />
+        </div>
+
+        <span class="close-button" onclick="hideLightBox()"></span>
+    </div>
+
     <header>
         <img src="img/logo.png" alt="logo" />
         <div class="text-container">
             <h1>ИНТЕРАКТИВНЫЕ ОБЕЗЬЯНКИ FINGERLINGS<br /> <u>100% ОРИГИНАЛ</u></h1>
             <h2>ФИНАЛЬНАЯ РАСПРОДАЖА! <br /> <s></s> 1890 р.</h2>
-            <div class="button" onclick="showOrder();">выбрать обезьянку</div>
+            <div class="button"><a href="#products">выбрать обезьянку</a></div>
             <!-- id="send-order"  -->
         </div>
     </header>
@@ -269,7 +227,7 @@
         </div>
     </div>
 
-    <div class="choose-track">
+    <div class="choose-track" id="products">
         <ul class="items">
             <li class="item discount-mark">
                 <img class="item-photo" src="MainPic/zoe.png" alt="item photo" />
@@ -287,10 +245,11 @@
                     подружкой.
                 </div>
                 <ul class="images hidden">
-                    <li>img/mia.jpg</li>
-                    <li>img/photo.jpg</li>
-                    <li>img/photo1.jpg</li>
-                    <li>img/photo2.jpg</li>
+                    <li>img/zoi1.jpg</li>
+                    <li>img/zoi2.jpg</li>
+                    <li>img/zoi3.jpg</li>
+                    <li>img/zoi4.jpg</li>
+                    <li>img/zoi6.jpg</li>
                 </ul>
                 <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
@@ -300,21 +259,22 @@
                 <div class="appearance">
                     <h3>Софи</h3>
                     <p>
-                        Гимнастка, обожающая висеть вверх ногами<br />
-                        и очень любит обниматься.
+                        Любит приключения и дарить <br />воздушные поцелуи
                     </p>
                     <h1 class="price">1890 руб.</h1>
                 </div>
                 <div class="description hidden">
-                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
-                    окрасом с белым хохолком, общительная и может стать лучшей<br />
-                    подружкой.
+                    Крошка Софи, обладательница красивой белой шкурки,<br />
+                     – прирожденная гимнастка, обожающая висеть вверх ногами и <br />
+                     очень любит обниматься.
+
                 </div>
                 <ul class="images hidden">
-                    <li>img/mia.jpg</li>
-                    <li>img/photo.jpg</li>
-                    <li>img/photo1.jpg</li>
-                    <li>img/photo2.jpg</li>
+                    <li>img/sofi1.jpg</li>
+                    <li>img/sofi2.jpg</li>
+                    <li>img/sofi3.jpg</li>
+                    <li>img/sofi4.jpg</li>
+                    <li>img/sofi5.jpg</li>
                 </ul>
                 <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
@@ -329,15 +289,17 @@
                     <h1 class="price">1890 руб.</h1>
                 </div>
                 <div class="description hidden">
-                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
-                    окрасом с белым хохолком, общительная и может стать лучшей<br />
-                    подружкой.
+                    Борис с синей шкуркой и оранжевым хохолком<br />
+                     – настоящий весельчак, он часто смеется.
+
                 </div>
                 <ul class="images hidden">
-                    <li>img/mia.jpg</li>
-                    <li>img/photo.jpg</li>
-                    <li>img/photo1.jpg</li>
-                    <li>img/photo2.jpg</li>
+                    <li>img/boris1.png</li>
+                    <li>img/boris2.jpg</li>
+                    <li>img/boris3.jpg</li>
+                    <li>img/boris4.jpg</li>
+                    <li>img/boris5.jpg</li>
+                    <li>img/boris6.jpg</li>
                 </ul>
                 <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
@@ -348,21 +310,19 @@
                 <div class="appearance">
                     <h3>Белла</h3>
                     <p>
-                        Гимнастка, обожающая висеть вверх ногами<br />
-                        и очень любит обниматься.
+                        Умеет забавно лепетать и вызывать всеобщие улыбки
                     </p>
                     <h1 class="price">1890 руб.</h1>
                 </div>
                 <div class="description hidden">
-                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
-                    окрасом с белым хохолком, общительная и может стать лучшей<br />
-                    подружкой.
+                    Белла с розовой шкуркой и желтым хохолком умеет забавно<br />
+                     лепетать и вызывать всеобщие улыбки.
                 </div>
                 <ul class="images hidden">
-                    <li>img/mia.jpg</li>
-                    <li>img/photo.jpg</li>
-                    <li>img/photo1.jpg</li>
-                    <li>img/photo2.jpg</li>
+                    <li>img/bella1.jpg</li>
+                    <li>img/bella2.jpg</li>
+                    <li>img/bella3.jpg</li>
+                    <li>img/bella4.jpg</li>
                 </ul>
                 <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
@@ -372,21 +332,20 @@
                 <div class="appearance">
                     <h3>Миа</h3>
                     <p>
-                        Гимнастка, обожающая висеть вверх ногами<br />
-                        и очень любит обниматься.
+                        Обезьянка очень общительная и станет лучшей подружкой.
                     </p>
                     <h1 class="price">1890 руб.</h1>
                 </div>
                 <div class="description hidden">
-                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
-                    окрасом с белым хохолком, общительная и может стать лучшей<br />
-                    подружкой.
+                    Обаятельная обезьянка Миа обладает красивым фиолетовым окрасом<br />
+                     с белым хохолком, общительная и может стать лучшей подружкой
                 </div>
                 <ul class="images hidden">
-                    <li>img/mia.jpg</li>
-                    <li>img/photo.jpg</li>
-                    <li>img/photo1.jpg</li>
-                    <li>img/photo2.jpg</li>
+                    <li>img/mia1.jpg</li>
+                    <li>img/mia2.jpg</li>
+                    <li>img/mia3.jpg</li>
+                    <li>img/mia4.jpg</li>
+                    <li>img/mia5.jpg</li>
                 </ul>
                 <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
@@ -396,20 +355,19 @@
                 <div class="appearance">
                     <h3>Фин</h3>
                     <p>
-                        Настоящий весельчак, способен поднять<br /> настроение кому угодно.
+                        Обожает качаться под ритм<br /> собственного бита
                     </p>
                     <h1 class="price">1890 руб.</h1>
                 </div>
                 <div class="description hidden">
-                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
-                    окрасом с белым хохолком, общительная и может стать лучшей<br />
-                    подружкой.
+                    Малыш Финн со стильным черным хохолком обожает<br />
+                     качаться под ритм собственного бита.
                 </div>
                 <ul class="images hidden">
-                    <li>img/mia.jpg</li>
-                    <li>img/photo.jpg</li>
-                    <li>img/photo1.jpg</li>
-                    <li>img/photo2.jpg</li>
+                    <li>img/fin1.jpg</li>
+                    <li>img/fin2.jpg</li>
+                    <li>img/fin3.jpg</li>
+                    <li>img/fin4.jpg</li>
                 </ul>
                 <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>

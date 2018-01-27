@@ -27,7 +27,8 @@ window.onload = function () {
         items[i].getElementsByClassName("button")[0].onclick = handleBuyButtonClick;
     }
 
-    $("#pre-order .button").onclick = showOrderForm;
+    $(".multiple-items").click(handleGalleryClick);
+    $("#lightbox").click(hideLightBox);
 
     initEmailJs();
 
@@ -302,6 +303,18 @@ function handleImageClick(event) {
     var image = $(event.target);
 
     $(".slider-for img").attr("src", image.attr("src"));
+}
+
+function handleGalleryClick(event) {
+    var image = $(event.target);
+    //alert(image.attr("src"));
+    //$(".slider-for img").attr("src", image.attr("src"));
+    $("#lightbox img").attr("src", image.attr("src"));
+    show("lightbox", "flex");
+}
+
+function hideLightBox() {
+    hide("lightbox");
 }
 
 function showPreOrder(item) {
