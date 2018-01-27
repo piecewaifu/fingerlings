@@ -205,7 +205,7 @@ function sendOrder() {
         "amount": amount
     });
 
-	yaCounter47370118.reachGoal('buy'); 
+	yaCounter47370118.reachGoal('order');
 
     showAlert();
     setTimeout(hideAlert, 7000);
@@ -256,8 +256,6 @@ function showOrder() {
 }
 
 function showOrderForm(event) {
-
-
     var button = event.target;
     var li = button.parentNode;
     var h3 = li.getElementsByTagName("h3")[0];
@@ -274,6 +272,31 @@ function showOrderForm(event) {
     }
 
     show('orderForm', 'flex');
+}
+
+function showPreOrder(event) {
+    var button = event.target;
+    var li = button.parentNode;
+    var h3 = li.getElementsByTagName("h3")[0];
+    var trackName = h3.innerHTML;
+	var list = document.getElementById("pre-order");
+	// alert(list[2].getElementsByClassName("container")[0].getElementsByClassName("name")[0].textContent);
+	
+    // var select = document.getElementById("goods");
+    // for (var i = 0; i < select.length; i++) {
+        // var option = select[i];
+        // if (option.value === trackName) {
+            // select.selectedIndex = i;
+            // updateAmount();
+            // break;
+        // }
+    // }
+
+    show('pre-order', 'flex');
+}
+
+function hidePreOrder() {
+	hide('pre-order');
 }
 
 function hideOrderForm() {

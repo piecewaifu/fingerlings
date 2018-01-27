@@ -10,7 +10,7 @@
 	
     <script type="text/javascript" src="script.js"></script>
     <!--<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">-->
-    <title>Fingerlings</title>
+    <title>Fingerlings® by WowWee® | Интернет-Магазин, Вы можете купить здесь только оригинальные игрушки.</title>
     <link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -125,13 +125,13 @@
                     <input id="customerPhone2" type="text" placeholder="+7(XXX) XXX-XXXX" />
                 </p>
                 <select id="goodsFooter">
-                    <option value="" disabled selected>Выберете свой набор</option>
-                    <option data-price="1200" value="Зои">Зои</option>
-                    <option data-price="1200" value="Софи">Софи</option>
-                    <option data-price="1200" value="Борис">Борис</option>
-                    <option data-price="1290" value="Белла">Белла</option>
-                    <option data-price="1200" value="Миа">Миа</option>
-                    <option data-price="1290" value="Фин">Фин</option>
+                    <option value="" disabled selected>Выберете свою обезьянку</option>
+                    <option data-price="1890" value="Зои">Зои</option>
+                    <option data-price="1890" value="Софи">Софи</option>
+                    <option data-price="1890" value="Борис">Борис</option>
+                    <option data-price="1890" value="Белла">Белла</option>
+                    <option data-price="1890" value="Миа">Миа</option>
+                    <option data-price="1890" value="Фин">Фин</option>
                 </select>
                 <div class="button" onclick="sendOrderFooter(); ">заказать</div>
             </form>
@@ -159,12 +159,12 @@
                     <input id="customerAddress" type="text" placeholder="Ваш адрес" />
                 </p>
                 <select id="goods" onchange="handleTrackSelected(event)">
-                    <option data-price="1200" value="Зои">Зои</option>
-                    <option data-price="1200" value="Софи">Софи</option>
-                    <option data-price="1200" value="Борис">Борис</option>
-                    <option data-price="1290" value="Белла">Белла</option>
-                    <option data-price="1200" value="Миа">Миа</option>
-                    <option data-price="1290" value="Фин">Фин</option>
+                    <option data-price="1890" value="Зои">Зои</option>
+                    <option data-price="1890" value="Софи">Софи</option>
+                    <option data-price="1890" value="Борис">Борис</option>
+                    <option data-price="1890" value="Белла">Белла</option>
+                    <option data-price="1890" value="Миа">Миа</option>
+                    <option data-price="1890" value="Фин">Фин</option>
                 </select>
                 <div class="total-price">
                     <div id="cart">
@@ -182,21 +182,89 @@
             <div id="send-order" class="button" onclick="sendOrder(event);">отправить</div>
         </div>
     </div>
-
-	<div id="pre-order">
-		<div class="container">
+	
+	<ul id="pre-order">
+		<li class="container">
+			<img class="order-leaves-left" src="img/oreder_leaves.png" alt="leaves"/>
+			<img class="order-leaves-right" src="img/order_leaves_right.png" alt="leaves"/>
+		
 			<div class="product-gallery">
+				<ul class="slider-for">
+					<li><img src="img/mia.jpg" alt="img"/></li>
+					<li><img src="img/mia.jpg" alt="img"/></li>
+					<li><img src="img/mia.jpg" alt="img"/></li>
+					<li><img src="img/mia.jpg" alt="img"/></li>
+				</ul>
+				<ul class="slider-nav">
+					<li><img src="img/mia.jpg" alt="img"/></li>
+					<li><img src="img/mia.jpg" alt="img"/></li>
+					<li><img src="img/mia.jpg" alt="img"/></li>
+					<li><img src="img/mia.jpg" alt="img"/></li>
+				</ul>
+				
+				<script>
+					$('.slider-for').slick({
+						slidestoshow: 1,
+						arrows: false,
+						fade: true,
+						asnavfor: '.slider-nav'
+					});
+					
+					$('.slider-nav').slick({
+						slidestoshow: 4,
+						asnavfor: '.slider-for',
+						centermode: true,
+						focusonselect: true,
+						arrows: false
+					});
+				</script>
 			</div>
+			
 			<div class="product-info">
+				<h1>Зои</h1>
+				
+				<p>
+					Обаятельная обезьянка Миа обладает красивым фиолетовым<br/>
+					окрасом с белым хохолком, общительная и может стать лучшей<br/>
+					подружкой.
+				</p>
+
+				<h2>Обезьянка умеет:</h2>
+				
+				<ul>
+					<li>Реагировать на движение и голос</li>
+					<li>
+						В ответ на прикосновение выполнять более 40 различных<br/>
+						действий,    издавать более 50 звуковых сигналов
+					</li>
+					<li>Цепляться лапками за палец или любые другие мелкие предметы</li>
+					<li>Висеть ногами вниз, закрепляясь хвостиком за любую поверхность</li>
+					<li>Общаться с другими обезьянками Fingerlings</li>
+					<li>Посылать воздушные поцелуи, если подуть в мордочку</li>
+				</ul>
+
+				<p>
+					<span>Рекомендованный возраст:</span> от 3 лет.<br/>
+					<span>Питание:</span> 4 батарейки типа LR44 (входят в комплект).<br/>
+					<span>Размеры:</span> 8 х 7 х 12.5 см.<br/>
+					<span>Вес:</span> 170 г.<br/>
+				</p>
+				
+				<h1>Цена: 1890 руб</h1>
+				
+				<!-- <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div> -->
 			</div>
-		</div>
-	</div>
+			
+			<span class="close-button" onclick="hidePreOrder()"></span>
+		</li>
+	</ul>
+	
 	
     <header>
         <img src="img/logo.png" alt="logo" />
         <div class="text-container">
             <h1>ИНТЕРАКТИВНЫЕ ОБЕЗЬЯНКИ FINGERLINGS<br /> <u>100% ОРИГИНАЛ</u></h1>
-            <h2>ФИНАЛЬНАЯ РАСПРОДАЖА! <br /> <s>110$</s> 49$</h2>
+            <h2>ФИНАЛЬНАЯ РАСПРОДАЖА! <br /> <s></s> 1890 р.</h2>
             <div class="button" onclick="showOrder();">выбрать обезьянку</div>
 			<!-- id="send-order"  -->
         </div>
@@ -207,7 +275,7 @@
 
         <ul>
             <li>СЧАСТЬЕ ДЛЯ ДЕТЕЙ</li>
-            <li>нтерактивная ручная обезьянка - милая и<br /> забавная, она обязательно удивит вас и<br /> вашего малыша!</li>
+            <li>Интерактивная ручная обезьянка - милая и<br /> забавная, она обязательно удивит вас и<br /> вашего малыша!</li>
             <li>
                 Обезьянка, как настоящая, цепляется за ваш<br /> палец или за другую поверхность.<br />
                 Выполняет акробатические трюки, издает<br /> "прикольные" звуки, дарит воздушные<br /> поцелуи и укладывается спать прямо у вас на<br /> ручках!
@@ -238,22 +306,23 @@
             <img class="kids" src="img/kids.png" alt="kids" />
         </div>
     </div>
-
+	
     <div class="choose-track">
         <ul class="items">
             <li class="item discount-mark">
-                <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
+                <img class="item-photo" src="MainPic/zoe.png" alt="item photo" />
                 <div class="price">
                     <h3>Зои</h3>
                     <p>
                         Гимнастка, обожающая висеть вверх ногами<br />
                         и очень любит обниматься.
                     </p>
-                    <h1>1200 руб.</h1>
+                    <h1>1890 руб.</h1>
                 </div>
 
                 <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
+			
             <li class="item discount-mark">
                 <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
                 <div class="price">
@@ -262,11 +331,12 @@
                         Гимнастка, обожающая висеть вверх ногами<br />
                         и очень любит обниматься.
                     </p>
-                    <h1>1200 руб.</h1>
+                    <h1>1890 руб.</h1>
                 </div>
 
                 <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
+			
             <li class="item">
                 <img class="item-photo" src="MainPic/boris.png" alt="item photo" />
                 <div class="price">
@@ -274,7 +344,7 @@
                     <p>
                         Настоящий весельчак, способен поднять<br /> настроение кому угодно.
                     </p>
-                    <h1>1200 руб.</h1>
+                    <h1>1890 руб.</h1>
                 </div>
 
                 <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
@@ -283,39 +353,41 @@
 
         <ul class="items">
             <li class="item discount-mark">
-                <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
+                <img class="item-photo" src="MainPic/bella.png" alt="item photo" />
                 <div class="price">
                     <h3>Белла</h3>
                     <p>
                         Гимнастка, обожающая висеть вверх ногами<br />
                         и очень любит обниматься.
                     </p>
-                    <h1>1290 руб.</h1>
+                    <h1>1890 руб.</h1>
                 </div>
 
                 <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
+			
             <li class="item discount-mark">
-                <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
+                <img class="item-photo" src="MainPic/mia.png" alt="item photo" />
                 <div class="price">
                     <h3>Миа</h3>
                     <p>
                         Гимнастка, обожающая висеть вверх ногами<br />
                         и очень любит обниматься.
                     </p>
-                    <h1>1200 руб.</h1>
+                    <h1>1890 руб.</h1>
                 </div>
 
                 <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
             </li>
+			
             <li class="item">
-                <img class="item-photo" src="MainPic/boris.png" alt="item photo" />
+                <img class="item-photo" src="MainPic/finn.png" alt="item photo" />
                 <div class="price">
                     <h3>Фин</h3>
                     <p>
                         Настоящий весельчак, способен поднять<br /> настроение кому угодно.
                     </p>
-                    <h1>1290 руб.</h1>
+                    <h1>1890 руб.</h1>
                 </div>
 
                 <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
@@ -330,7 +402,7 @@
             <h2>Дети хотят домашнего питомца? Обезьянка - идеальный вариант!</h2>
         </div>
 
-        <iframe id="ytplayer" width="725" height="408" src="https://www.youtube.com/embed/fvB79rpIHvc" frameborder="0" allowfullscreen></iframe>
+        <iframe id="ytplayer" width="725" height="408" src="https://www.youtube.com/embed/s6gyEYp2S5I" frameborder="0" allowfullscreen></iframe>
     </div>
 
 	<div class="gallery">
@@ -339,10 +411,14 @@
 			<li class="gallery-item"><img src="gallery/2.jpg" alt="img" /></li>
 			<li class="gallery-item"><img src="gallery/3.jpg" alt="img" /></li>
 			<li class="gallery-item"><img src="gallery/4.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/1.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/2.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/3.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/4.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/5.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/6.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/7.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/8.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/9.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/10.jpg" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/11.png" alt="img" /></li>
+			<li class="gallery-item"><img src="gallery/12.jpg" alt="img" /></li>
 		</ul>
     </div>
 
@@ -367,13 +443,6 @@
 				{
 					breakpoint: 600,
 					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 2
-					}
-				},
-				{
-					breakpoint: 480,
-					settings: {
 						slidesToShow: 1,
 						slidesToScroll: 1
 					}	
@@ -384,7 +453,7 @@
 	</script>
 		
     <div class="reviews">
-        <h1>Отзывы заботливых родителей</h1>
+        <h1>Отзывы родителей</h1>
         <ul id="carousel">
             <li>
                 <div class="person">
@@ -392,7 +461,7 @@
                     <h6>Наталия<br /> <span>Москва</span></h6>
                 </div>
                 <div class="review">
-                    <p>Решили купить ребенку трассу для машинок, остановили своё внимание на " Magic tracks ". Дорога очень яркая, все детали светятся ярко в темноте, гоночная машинка смотрится особенно красиво, так как они оснащены яркими светодиодами.</p>
+                    <p>Отзыв</p>
                 </div>
             </li>
             <li>
@@ -401,7 +470,7 @@
                     <h6>Оксана<br /> <span>Москва</span></h6>
                 </div>
                 <div class="review">
-                    <p>Купила своему ребенку гоночный трек. Легко собирается, даже сам сын справился. Но ребеноку младшего возраста прийдется немного помочь. Достаточно крепко держаться между собой детальки, как показано в рекламе без проблем гнется в разные стороны и можно строить разные подъемы, спуски и импровизировать. </p>
+                    <p>Отзыв</p>
                 </div>
             </li>
             <li>
@@ -410,7 +479,7 @@
                     <h6>Алексей<br /> <span>Москва</span></h6>
                 </div>
                 <div class="review">
-                    <p>Мы купили сразу два набора, Magic tracks Дрифт и Magic tracks Вираж. Игрушка обалденная, светится мигает, куча вариантов что с ней можно сделать. В общем ребенок доволен не реально. </p>
+                    <p>Отзыв</p>
                 </div>
             </li>
         </ul>
@@ -462,8 +531,8 @@
     <footer>
         <h1>Контакты</h1>
         <h2>Мы работаем с 9:00 до 21:00 без выходных.</h2>
-        <h3>+38 (050) 948-88-63</h3>
-        <h3>+38 (073) 108-64-87</h3>
+        <h3>+00 (000) 900-00-00</h3>
+        <h3>+00 (000) 100-00-00</h3>
     </footer>
 
     <!-- BEGIN JIVOSITE CODE -->
