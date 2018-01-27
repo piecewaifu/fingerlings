@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-	
-	
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-	
+
+
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+
     <script type="text/javascript" src="script.js"></script>
     <!--<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">-->
     <title>Fingerlings® by WowWee® | Интернет-Магазин, Вы можете купить здесь только оригинальные игрушки.</title>
@@ -20,52 +20,49 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!-- Yandex.Metrika counter -->
-	<script type="text/javascript" >
-		(function (d, w, c) {
-			(w[c] = w[c] || []).push(function() {
-				try {
-					w.yaCounter47370118 = new Ya.Metrika2({
-						id:47370118,
-						clickmap:true,
-						trackLinks:true,
-						accurateTrackBounce:true,
-						webvisor:true
-					});
-				} catch(e) { }
-			});
 
-			var n = d.getElementsByTagName("script")[0],
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter47370118 = new Ya.Metrika2({
+                        id: 47370118,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true
+                    });
+                } catch (e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
 				s = d.createElement("script"),
 				f = function () { n.parentNode.insertBefore(s, n); };
-			s.type = "text/javascript";
-			s.async = true;
-			s.src = "https://mc.yandex.ru/metrika/tag.js";
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
 
-			if (w.opera == "[object Opera]") {
-				d.addEventListener("DOMContentLoaded", f, false);
-			} else { f(); }
-		})(document, window, "yandex_metrika_callbacks2");
-	</script>
-	<noscript><div><img src="https://mc.yandex.ru/watch/47370118" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-	<!-- /Yandex.Metrika counter -->
-		
-	<script type="text/javascript" src="slick/slick.min.js"></script>
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks2");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/47370118" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <script type="text/javascript" src="slick/slick.min.js"></script>
 </head>
 <body>
-
     <div id="alert">
         <p>Сообщение было отправлено!</p>
     </div>
-
     <div id="callback">
         <div class="container">
             <span id="close-callback-form" class="close-button"></span>
             <h1 class="alert">Поля должны быть заполнены!</h1>
             <form>
                 <h1>Обратный звонок</h1>
-
                 <div class="input-container">
                     <p>
                         <img src="img/form_face.png" alt="face" />
@@ -81,12 +78,11 @@
             </form>
         </div>
     </div>
-	
+
     <div id="reviewForm">
         <div class="container">
             <span id="close-review-form" class="close-button" onclick="hideReviewFrom()"></span>
             <h1>Оставить отзыв</h1>
-
             <h1 class="alert">Поля должны быть заполнены!</h1>
             <form>
                 <p>
@@ -106,14 +102,13 @@
             <div id="send-review" class="button" onclick="leaveReview()">отправить</div>
         </div>
     </div>
-	
+
     <div id="order">
         <div class="container">
             <span class="close-button" onclick="hideOrder()"></span>
             <h1 class="alert">Поля должны быть заполнены!</h1>
-			<h1>Обезьянки Фингерлингс</h1>
+            <h1>Обезьянки Фингерлингс</h1>
             <form>
-                
 
                 <p>
                     <img src="img/form_face.png" alt="face" />
@@ -137,12 +132,10 @@
             </form>
         </div>
     </div>
-
     <div id="orderForm">
         <div class="container">
             <h1>Оформление заказа</h1>
             <span class="close-button" onclick="hideOrderForm()"></span>
-
             <h1 class="alert">Поля должны быть заполнены!</h1>
             <form>
                 <p>
@@ -182,97 +175,72 @@
             <div id="send-order" class="button" onclick="sendOrder(event);">отправить</div>
         </div>
     </div>
-	
-	<ul id="pre-order">
-		<li class="container">
-			<img class="order-leaves-left" src="img/oreder_leaves.png" alt="leaves"/>
-			<img class="order-leaves-right" src="img/order_leaves_right.png" alt="leaves"/>
-		
-			<div class="product-gallery">
-				<ul class="slider-for">
-					<li><img src="img/mia.jpg" alt="img"/></li>
-					<li><img src="img/mia.jpg" alt="img"/></li>
-					<li><img src="img/mia.jpg" alt="img"/></li>
-					<li><img src="img/mia.jpg" alt="img"/></li>
-				</ul>
-				<ul class="slider-nav">
-					<li><img src="img/mia.jpg" alt="img"/></li>
-					<li><img src="img/mia.jpg" alt="img"/></li>
-					<li><img src="img/mia.jpg" alt="img"/></li>
-					<li><img src="img/mia.jpg" alt="img"/></li>
-				</ul>
-				
-				<script>
-					$('.slider-for').slick({
-						slidestoshow: 1,
-						arrows: false,
-						fade: true,
-						asnavfor: '.slider-nav'
-					});
-					
-					$('.slider-nav').slick({
-						slidestoshow: 4,
-						asnavfor: '.slider-for',
-						centermode: true,
-						focusonselect: true,
-						arrows: false
-					});
-				</script>
-			</div>
-			
-			<div class="product-info">
-				<h1>Зои</h1>
-				
-				<p>
-					Обаятельная обезьянка Миа обладает красивым фиолетовым<br/>
-					окрасом с белым хохолком, общительная и может стать лучшей<br/>
-					подружкой.
-				</p>
 
-				<h2>Обезьянка умеет:</h2>
-				
-				<ul>
-					<li>Реагировать на движение и голос</li>
-					<li>
-						В ответ на прикосновение выполнять более 40 различных<br/>
-						действий,    издавать более 50 звуковых сигналов
-					</li>
-					<li>Цепляться лапками за палец или любые другие мелкие предметы</li>
-					<li>Висеть ногами вниз, закрепляясь хвостиком за любую поверхность</li>
-					<li>Общаться с другими обезьянками Fingerlings</li>
-					<li>Посылать воздушные поцелуи, если подуть в мордочку</li>
-				</ul>
+    <ul id="pre-order">
+        <li class="container">
+            <img class="order-leaves-left" src="img/oreder_leaves.png" alt="leaves" />
+            <img class="order-leaves-right" src="img/order_leaves_right.png" alt="leaves" />
 
-				<p>
-					<span>Рекомендованный возраст:</span> от 3 лет.<br/>
-					<span>Питание:</span> 4 батарейки типа LR44 (входят в комплект).<br/>
-					<span>Размеры:</span> 8 х 7 х 12.5 см.<br/>
-					<span>Вес:</span> 170 г.<br/>
-				</p>
-				
-				<h1>Цена: 1890 руб</h1>
-				
-				<!-- <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div> -->
-			</div>
-			
-			<span class="close-button" onclick="hidePreOrder()"></span>
-		</li>
-	</ul>
-	
-	
+            <div class="product-gallery">
+                <ul class="slider-for">
+                    <li><img src="img/mia.jpg" alt="img" /></li>
+                </ul>
+                <ul class="slider-nav">
+                    <li><img src="img/mia.jpg" alt="img" /></li>
+                    <li><img src="img/mia.jpg" alt="img" /></li>
+                    <li><img src="img/mia.jpg" alt="img" /></li>
+                    <li><img src="img/mia.jpg" alt="img" /></li>
+                </ul>
+            </div>
+
+            <div class="product-info">
+                <h1 class="name">Зои</h1>
+
+                <p class="description">
+                    Обаятельная обезьянка Миа обладает красивым фиолетовым<br />
+                    окрасом с белым хохолком, общительная и может стать лучшей<br />
+                    подружкой.
+                </p>
+                <h2>Обезьянка умеет:</h2>
+
+                <ul>
+                    <li>Реагировать на движение и голос</li>
+                    <li>
+                        В ответ на прикосновение выполнять более 40 различных<br />
+                        действий,    издавать более 50 звуковых сигналов
+                    </li>
+                    <li>Цепляться лапками за палец или любые другие мелкие предметы</li>
+                    <li>Висеть ногами вниз, закрепляясь хвостиком за любую поверхность</li>
+                    <li>Общаться с другими обезьянками Fingerlings</li>
+                    <li>Посылать воздушные поцелуи, если подуть в мордочку</li>
+                </ul>
+                <p>
+                    <span>Рекомендованный возраст:</span> от 3 лет.<br />
+                    <span>Питание:</span> 4 батарейки типа LR44 (входят в комплект).<br />
+                    <span>Размеры:</span> 8 х 7 х 12.5 см.<br />
+                    <span>Вес:</span> 170 г.<br />
+                </p>
+
+                <h1 class="price">Цена: 3132 руб</h1>
+
+                <div class="button" onclick="showOrderForm()"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
+            </div>
+
+            <span class="close-button" onclick="hidePreOrder()"></span>
+        </li>
+    </ul>
+
     <header>
         <img src="img/logo.png" alt="logo" />
         <div class="text-container">
             <h1>ИНТЕРАКТИВНЫЕ ОБЕЗЬЯНКИ FINGERLINGS<br /> <u>100% ОРИГИНАЛ</u></h1>
             <h2>ФИНАЛЬНАЯ РАСПРОДАЖА! <br /> <s></s> 1890 р.</h2>
             <div class="button" onclick="showOrder();">выбрать обезьянку</div>
-			<!-- id="send-order"  -->
+            <!-- id="send-order"  -->
         </div>
     </header>
-
     <div class="fingerlings">
         <img src="img/monkeys.jpg" alt="monkeys" />
-
         <ul>
             <li>СЧАСТЬЕ ДЛЯ ДЕТЕЙ</li>
             <li>Интерактивная ручная обезьянка - милая и<br /> забавная, она обязательно удивит вас и<br /> вашего малыша!</li>
@@ -283,7 +251,7 @@
             <li>А если вы являетесь обладателем нескольких<br /> обезьянок, то вы будете приятно удивлены<br /> их диалогом между собой.</li>
         </ul>
     </div>
-	
+
     <div class="features">
         <img class="leaves" src="img/leaves.png" alt="leaves" />
         <h1>Что умеют обезьянки Fingerlings</h1>
@@ -302,156 +270,210 @@
                     <p>В игровом процессе могут участвовать<br /> несколько детей, что повысит<br /> коммуникабельность ребёнка.</p>
                 </li>
             </ul>
-
             <img class="kids" src="img/kids.png" alt="kids" />
         </div>
     </div>
-	
+
     <div class="choose-track">
         <ul class="items">
             <li class="item discount-mark">
                 <img class="item-photo" src="MainPic/zoe.png" alt="item photo" />
-                <div class="price">
+                <div class="appearance">
                     <h3>Зои</h3>
                     <p>
                         Гимнастка, обожающая висеть вверх ногами<br />
                         и очень любит обниматься.
                     </p>
-                    <h1>1890 руб.</h1>
+                    <h1 class="price">1890 руб.</h1>
                 </div>
-
-                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
+                <div class="description hidden">
+                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
+                    окрасом с белым хохолком, общительная и может стать лучшей<br />
+                    подружкой.
+                </div>
+                <ul class="images hidden">
+                    <li>img/mia.jpg</li>
+                    <li>img/photo.jpg</li>
+                    <li>img/photo1.jpg</li>
+                    <li>img/photo2.jpg</li>
+                </ul>
+                <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
-			
+
             <li class="item discount-mark">
                 <img class="item-photo" src="MainPic/sofi.png" alt="item photo" />
-                <div class="price">
+                <div class="appearance">
                     <h3>Софи</h3>
                     <p>
                         Гимнастка, обожающая висеть вверх ногами<br />
                         и очень любит обниматься.
                     </p>
-                    <h1>1890 руб.</h1>
+                    <h1 class="price">1890 руб.</h1>
                 </div>
-
-                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
+                <div class="description hidden">
+                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
+                    окрасом с белым хохолком, общительная и может стать лучшей<br />
+                    подружкой.
+                </div>
+                <ul class="images hidden">
+                    <li>img/mia.jpg</li>
+                    <li>img/photo.jpg</li>
+                    <li>img/photo1.jpg</li>
+                    <li>img/photo2.jpg</li>
+                </ul>
+                <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
-			
+
             <li class="item">
                 <img class="item-photo" src="MainPic/boris.png" alt="item photo" />
-                <div class="price">
+                <div class="appearance">
                     <h3>Борис</h3>
                     <p>
                         Настоящий весельчак, способен поднять<br /> настроение кому угодно.
                     </p>
-                    <h1>1890 руб.</h1>
+                    <h1 class="price">1890 руб.</h1>
                 </div>
-
-                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
+                <div class="description hidden">
+                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
+                    окрасом с белым хохолком, общительная и может стать лучшей<br />
+                    подружкой.
+                </div>
+                <ul class="images hidden">
+                    <li>img/mia.jpg</li>
+                    <li>img/photo.jpg</li>
+                    <li>img/photo1.jpg</li>
+                    <li>img/photo2.jpg</li>
+                </ul>
+                <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
         </ul>
-
         <ul class="items">
             <li class="item discount-mark">
                 <img class="item-photo" src="MainPic/bella.png" alt="item photo" />
-                <div class="price">
+                <div class="appearance">
                     <h3>Белла</h3>
                     <p>
                         Гимнастка, обожающая висеть вверх ногами<br />
                         и очень любит обниматься.
                     </p>
-                    <h1>1890 руб.</h1>
+                    <h1 class="price">1890 руб.</h1>
                 </div>
-
-                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
+                <div class="description hidden">
+                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
+                    окрасом с белым хохолком, общительная и может стать лучшей<br />
+                    подружкой.
+                </div>
+                <ul class="images hidden">
+                    <li>img/mia.jpg</li>
+                    <li>img/photo.jpg</li>
+                    <li>img/photo1.jpg</li>
+                    <li>img/photo2.jpg</li>
+                </ul>
+                <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
-			
+
             <li class="item discount-mark">
                 <img class="item-photo" src="MainPic/mia.png" alt="item photo" />
-                <div class="price">
+                <div class="appearance">
                     <h3>Миа</h3>
                     <p>
                         Гимнастка, обожающая висеть вверх ногами<br />
                         и очень любит обниматься.
                     </p>
-                    <h1>1890 руб.</h1>
+                    <h1 class="price">1890 руб.</h1>
                 </div>
-
-                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
+                <div class="description hidden">
+                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
+                    окрасом с белым хохолком, общительная и может стать лучшей<br />
+                    подружкой.
+                </div>
+                <ul class="images hidden">
+                    <li>img/mia.jpg</li>
+                    <li>img/photo.jpg</li>
+                    <li>img/photo1.jpg</li>
+                    <li>img/photo2.jpg</li>
+                </ul>
+                <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
-			
+
             <li class="item">
                 <img class="item-photo" src="MainPic/finn.png" alt="item photo" />
-                <div class="price">
+                <div class="appearance">
                     <h3>Фин</h3>
                     <p>
                         Настоящий весельчак, способен поднять<br /> настроение кому угодно.
                     </p>
-                    <h1>1890 руб.</h1>
+                    <h1 class="price">1890 руб.</h1>
                 </div>
-
-                <div class="button"><img src="img/shopping_cart.png" alt="img"/> купить обезьянку</div>
+                <div class="description hidden">
+                    Обаятельная обезьянка Зои обладает красивым фиолетовым<br />
+                    окрасом с белым хохолком, общительная и может стать лучшей<br />
+                    подружкой.
+                </div>
+                <ul class="images hidden">
+                    <li>img/mia.jpg</li>
+                    <li>img/photo.jpg</li>
+                    <li>img/photo1.jpg</li>
+                    <li>img/photo2.jpg</li>
+                </ul>
+                <div class="button"><img src="img/shopping_cart.png" alt="img" /> купить обезьянку</div>
             </li>
         </ul>
     </div>
-
     <div class="video">
         <img class="leaves-left" src="img/leaves_left.png" alt="leaves" />
         <div>
             <h1>Небольшой видео ролик про <span>обезьянку Фингерлингс</span></h1>
             <h2>Дети хотят домашнего питомца? Обезьянка - идеальный вариант!</h2>
         </div>
-
         <iframe id="ytplayer" width="725" height="408" src="https://www.youtube.com/embed/s6gyEYp2S5I" frameborder="0" allowfullscreen></iframe>
     </div>
-
-	<div class="gallery">
-		<ul class="multiple-items">
-			<li class="gallery-item"><img src="gallery/1.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/2.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/3.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/4.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/5.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/6.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/7.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/8.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/9.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/10.jpg" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/11.png" alt="img" /></li>
-			<li class="gallery-item"><img src="gallery/12.jpg" alt="img" /></li>
-		</ul>
+    <div class="gallery">
+        <ul class="multiple-items">
+            <li class="gallery-item"><img src="gallery/1.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/2.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/3.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/4.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/5.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/6.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/7.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/8.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/9.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/10.jpg" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/11.png" alt="img" /></li>
+            <li class="gallery-item"><img src="gallery/12.jpg" alt="img" /></li>
+        </ul>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-	<script type="text/javascript">
-	$(document).ready(function(){
-		
-		$('.multiple-items').slick({
-			infinite: true,
-			slidesToShow: 4,
-			slidesToScroll: 3,
-			dots: true,
-			responsive: [
-				{
-					breakpoint: 1024,
-					settings: {
-						slidesToShow: 3,
-						slidesToScroll: 3,
-						infinite: true,
-						dots: true
-					}
-				},
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1
-					}	
-				}
-			]
-		});
-	});
-	</script>
-		
+            $('.multiple-items').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 3,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
     <div class="reviews">
         <h1>Отзывы родителей</h1>
         <ul id="carousel">
@@ -487,13 +509,11 @@
         <div id="next" onclick="turnRight()"></div>
         <div id="prev" onclick="turnLeft()"></div>
     </div>
-
     <div class="order">
         <div>
             <h1>Как заказать обезьянку Фингерлингс?</h1>
             <h2>Для заказа Вам необходимо сделать 4 простых шага</h2>
         </div>
-
         <ul>
             <li>
                 <img src="img/model.png" alt="model" />
@@ -527,14 +547,12 @@
         </ul>
     </div>
 
-
     <footer>
         <h1>Контакты</h1>
         <h2>Мы работаем с 9:00 до 21:00 без выходных.</h2>
         <h3>+00 (000) 900-00-00</h3>
         <h3>+00 (000) 100-00-00</h3>
     </footer>
-
     <!-- BEGIN JIVOSITE CODE -->
     <script type='text/javascript'>
         (function () { var widget_id = 'GjzMIbUrL7'; var d = document; var w = window; function l() { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/' + widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss); } if (d.readyState == 'complete') { l(); } else { if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })();
@@ -542,4 +560,3 @@
     <!-- END JIVOSITE CODE -->
 </body>
 </html>
-

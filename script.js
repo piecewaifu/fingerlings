@@ -24,8 +24,10 @@ window.onload = function () {
 
     var items = document.body.getElementsByClassName("item");
     for (var i = 0; i < items.length; i++) {
-        items[i].getElementsByClassName("button")[0].onclick = showOrderForm;
+        items[i].getElementsByClassName("button")[0].onclick = handleBuyButtonClick;
     }
+
+    $("#pre-order .button").onclick = showOrderForm;
 
     initEmailJs();
 
@@ -214,43 +216,6 @@ function sendOrder() {
     return true;
 }
 
-function sendOrderFooter() {
-    var selected = document.getElementById("goodsFooter").selectedOptions[0];
-    var customerName = getValidImputValue("customerName2");
-    var customerPhone = getValidImputValue("customerPhone2");
-    var trackName = selected.value;
-
-    if (!customerName || !customerPhone) {
-        document.getElementsByClassName("alert")[2].style.opacity = "1";
-        setTimeout(function () {
-            document.getElementsByClassName("alert")[2].style.opacity = "0";
-        }, 1500);
-        return;
-    }
-
-    var priceString = selected.dataset.price;
-    var price = parseInt(priceString.replace(" ", ""))
-    var amount = (1 * price / 1000).toFixed(3).replace(".", " ") + " руб.";
-
-
-    var result = emailjs.send("gmail", "order", {
-        "customerName": customerName,
-        "customerPhone": customerPhone,
-        "trackName": trackName,
-        "price": price + " руб.",
-        "quantity": 1 + "шт.",
-        "amount": amount
-    });
-
-
-
-    showAlert();
-    setTimeout(hideAlert, 7000);
-    hideOrder();
-
-    return true;
-}
-
 function showOrder() {
     show('order', 'flex');
 }
@@ -274,23 +239,51 @@ function showOrderForm(event) {
     show('orderForm', 'flex');
 }
 
-function showPreOrder(event) {
-    var button = event.target;
-    var li = button.parentNode;
-    var h3 = li.getElementsByTagName("h3")[0];
-    var trackName = h3.innerHTML;
-	var list = document.getElementById("pre-order");
-	// alert(list[2].getElementsByClassName("container")[0].getElementsByClassName("name")[0].textContent);
-	
-    // var select = document.getElementById("goods");
-    // for (var i = 0; i < select.length; i++) {
-        // var option = select[i];
-        // if (option.value === trackName) {
-            // select.selectedIndex = i;
-            // updateAmount();
-            // break;
-        // }
-    // }
+function handleBuyButtonClick(event) {
+    var $button = $(event.target);
+    var $item = $button.parent(".item");
+    var name = $item.find("h3").text();
+    var price = $item.find(".price").text();
+
+    var descriptionHTML = $item.find(".description").html();
+    descriptionHTML = descriptionHTML || " ";
+
+    var images = [];
+    var $images = $item.find(".images").children();
+    for (var i = 0; i < $images.length; i++) {
+        var $li = $images.eq(i);
+        images.push($li.text());
+    }
+
+    showPreOrder(name, descriptionHTML, images, price);
+}
+
+function handleImageClick(event) {
+    var image = $(event.target);
+
+    $(".slider-for img").attr("src", image.attr("src"));
+}
+
+function showPreOrder(name, descriptionHTML, images, price) {
+    // returns true if user pressd buy btn. false if pressed close btn.
+    $("#pre-order .name").text(name);
+    $("#pre-order .description").html(descriptionHTML);
+    $("#pre-order .price").text(price);
+
+    var $sliderFor = $("#pre-order .slider-for").empty();
+    var $sliderNav = $("#pre-order .slider-nav").empty();
+
+    $sliderFor.append("<li><img src='" + images[0] + "' alt='img' /></li>");
+
+    for (var i = 0; i < images.length; i++) {
+        var $image = $("<img src='" + images[i] + "' alt='img' />");
+        $image.click(handleImageClick);
+
+        var $li = $("<li>");
+        $li.append($image);
+
+        $sliderNav.append($li);
+    }
 
     show('pre-order', 'flex');
 }
