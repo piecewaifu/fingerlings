@@ -1730,12 +1730,12 @@ input::placeholder, textarea::placeholder {
                 }
 
     footer {
-        display: none;
+        /*display: none;*/
+        width: 100%;
+        height: 300px;
+        background-position: center;
     }
 
-        footer .privacy-policy {
-            justify-content: space-around;
-        }
 
     #message {
         top: 0;
@@ -1761,8 +1761,8 @@ input::placeholder, textarea::placeholder {
         }
 
 
-    footer h1, footer h2 {
-        display: none;
+    footer h2 {
+        font-size: 20px;
     }
 
     #callback img, #orderForm img, #reviewForm img, footer form img {
@@ -1774,9 +1774,11 @@ input::placeholder, textarea::placeholder {
         display: none;
     }
 
-    #orderForm .container, #callback .container, #reviewForm .container {
+    #orderForm .container, #reviewForm .container {
         width: 100%;
         height: 100%;
+        background-image: url(img/bg_gradient.png), linear-gradient(to bottom, #73399f, #50c5df);
+        background-repeat: repeat-y;
     }
 
         #orderForm .container form, #callback .container form, #reviewForm .container form {
@@ -1829,4 +1831,42 @@ input::placeholder, textarea::placeholder {
         display: flex;
         justify-content: center;
     }
+
+    #pre-order .container {
+        border-radius: unset;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        flex-direction: column;
+        background-image: url(img/bg_gradient.png), linear-gradient(to bottom, #73399f, #50c5df);
+        background-repeat: repeat-y;
+    }
+
+        #pre-order .container .product-gallery {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        #pre-order .container .product-info {
+            padding-left: 50px;
+        }
+
+        #pre-order .container .product-info h1 {
+            font-size: 30px;
+        }
+
+        #pre-order .container .product-info ul {
+            font-size: 25px;
+        }
+
+        #pre-order .container .product-info p {
+            font-size: 25px;
+        }
+
+        #pre-order .container .order-leaves-left, #pre-order .container .order-leaves-right {
+            display: none;
+        }
 }
