@@ -248,7 +248,9 @@ function showOrderForm(item) {
         $("#orderForm #amount").text(amountString);
     }
 
-    function handlSendOrderCLick() {
+    function handlSendOrderCLick(event) {
+        event.preventDefault();
+
         if (sendOrder()) {
             showAlert();
             setTimeout(hideAlert, 7000);
@@ -258,8 +260,6 @@ function showOrderForm(item) {
     }
 
     function sendOrder() {
-        event.preventDefault();
-
         var customerName = getValidImputValue("customerName");
         var customerPhone = getValidImputValue("customerPhone");
         var customerAddress = document.getElementById("customerAddress").value;
