@@ -27,58 +27,79 @@ window.onload = function () {
         items[i].getElementsByClassName("button")[0].onclick = handleBuyButtonClick;
     }
 
-    $(".multiple-items").click(handleGalleryClick);
-    $("#lightbox").click(hideLightBox);
-
     initEmailJs();
 
     var closeBtn = document.getElementById("close");
     id = 1;
     length = document.getElementById("carousel").getElementsByTagName("li").length;
     document.getElementById("carousel").getElementsByTagName("li")[id - 1].style.visibility = "visible";
-    //galleryLength = document.getElementById("gallery").getElementsByTagName("li").length;
-    //gallery = document.getElementById("gallery");
+    galleryLength = document.getElementById("gallery").getElementsByTagName("li").length;
+    gallery = document.getElementById("gallery");
 
     callbackForm = document.getElementById("callback");
 
     setInterval(random, 5000);
 
 
-    //var ul = document.getElementById('gallery'); // Parent
-    //var zoomed = document.getElementById("zoomed");
-    //zoomedImg = document.getElementById("zoomed-content");
+    var ul = document.getElementById('gallery'); // Parent
+    var zoomed = document.getElementById("zoomed");
+    zoomedImg = document.getElementById("zoomed-content");
 
-    //closeBtn.addEventListener('click', function () {
-    //    zoomed.style.display = "none";
-    //});
+    closeBtn.addEventListener('click', function () {
+        zoomed.style.display = "none";
+    });
 
-    //ul.addEventListener('click', function zoomPhoto (e) {
-    //    var target = e.target; // Clicked element
-    //    //while (target && target.parentNode !== ul) {
-    //    //    target = target.parentNode; // If the clicked element isn't a direct child
-    //    //    if (!target) { return; } // If element doesn't exist
-    //    //}
-    //    if (target.tagName === 'LI') {
-    //        photoID = target.id; // Check if the element is a LI
-    //        zoomed.style.display = "flex";
-    //        zoomed.targetLI = target;
-    //        zoomedImg.style.backgroundImage = "url(gallery/" + photoID + ".jpg)";
-    //    }
-    //});
+    ul.addEventListener('click', function zoomPhoto (e) {
+        var target = e.target; // Clicked element
+        //while (target && target.parentNode !== ul) {
+        //    target = target.parentNode; // If the clicked element isn't a direct child
+        //    if (!target) { return; } // If element doesn't exist
+        //}
+        if (target.tagName === 'LI') {
+            photoID = target.id; // Check if the element is a LI
+            zoomed.style.display = "flex";
+            zoomed.targetLI = target;
+            zoomedImg.style.backgroundImage = "url(gallery/" + photoID + ".jpg)";
+        }
+    });
 
 
 
-    //var gallery = document.getElementById("gallery").getElementsByTagName("li").length;
+    var gallery = document.getElementById("gallery").getElementsByTagName("li").length;
 
-    //for (var i = 0; i < gallery; i++) {
-    //    var li = document.getElementById("gallery").getElementsByTagName("li")[i];
-    //    li.style.backgroundImage = "url(gallery/" + (i + 1) + ".jpg)";
-    //    li.id = i + 1;
-    //}
+    for (var i = 0; i < gallery; i++) {
+        var li = document.getElementById("gallery").getElementsByTagName("li")[i];
+        li.style.backgroundImage = "url(gallery/" + (i + 1) + ".jpg)";
+        li.id = i + 1;
+    }
 
     slides = document.querySelectorAll('.slides .slide');
     currentSlide = 0;
     slideInterval = setInterval(nextSlide, 4000);
+}
+
+function nextImage() {
+    var zoomed = document.getElementById('zoomed');
+    var current = zoomed.targetLI;
+    var next = current.nextElementSibling;
+    if (!next) {
+        next = current.parentElement.firstElementChild;
+    }
+
+    zoomed.targetLI = next;
+    zoomedImg.style.backgroundImage = "url(gallery/" + next.id + ".jpg)";
+}
+
+function prevImage() {
+    var zoomed = document.getElementById('zoomed');
+    var current = zoomed.targetLI;
+    var next = current.previousElementSibling;
+    if (!next) {
+        next = current.parentElement.lastElementChild;
+    }
+
+    zoomed.targetLI = next;
+    zoomedImg.style.backgroundImage = "url(gallery/" + next.id + ".jpg)";
 }
 
 function nextSlide() {

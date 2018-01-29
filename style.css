@@ -1,6 +1,11 @@
 ﻿@import "reset.css" all;
 
 @font-face {
+    font-family: FontAwesome;
+    src: url(FontAwesome/fonts/fontawesome.ttf);
+}
+
+@font-face {
     font-family: SFUIDisplaySemi;
     src: url(SFUIDisplay/SF-UI-Display-Semibold.ttf);
 }
@@ -35,6 +40,66 @@
     src: url(SFUIDisplay/SF-UI-Display-Medium.ttf);
 }
 
+.product-photos {
+    padding: 50px 0 50px 0;
+}
+
+#zoomed {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000000000000;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+#zoomed-content {
+    width: 1000px;
+    height: 600px;
+    background-color: transparent;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#prevImage {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    margin-top: -50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+    #prevImage:before {
+        content: "\f100";
+        font-family: FontAwesome;
+        font-size: 50px;
+        color: white;
+    }
+
+#nextImage {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    margin-top: -50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+    #nextImage:before {
+        content: "\f101";
+        font-family: FontAwesome;
+        font-size: 50px;
+        color: white;
+    }
 
 body {
     display: flex;
@@ -370,12 +435,6 @@ header {
         overflow: hidden;
     }
 
-        #pre-order .container .product-gallery {
-            width: 435px;
-            height: 100%;
-            padding-left: 40px;
-            padding-top: 35px;
-        }
 
         #pre-order .container .product-info {
             width: 535px;
@@ -508,13 +567,7 @@ header {
     width: 240px;
 }
 
-.gallery {
-    width: 100%;
-    height: 345px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .multiple-items {
     width: 69%;
@@ -528,10 +581,6 @@ header {
         margin-left: -25px;
     }
 
-    .multiple-items .gallery-item img {
-        width: 255px;
-        height: 255px;
-    }
 
 .button {
     width: 260px;
@@ -1065,10 +1114,6 @@ header .slides {
     body {
         padding: 0;
     }
-
-    .container.gallery-container {
-        border-radius: 0;
-    }
 }
 
 
@@ -1539,6 +1584,12 @@ input::placeholder, textarea::placeholder {
         transform: scale(1.1);
     }
 
+#pre-order .container .product-gallery {
+    padding-top: 30px;
+    margin-right: 20px;
+
+}
+
 @media screen and (max-width: 1200px) {
     .features img {
         display: none;
@@ -1561,6 +1612,19 @@ input::placeholder, textarea::placeholder {
 }
 
 @media screen and (max-width: 900px) {
+    #zoomed #close {
+        top: 10px;
+        right: 10px;
+    }
+
+    #zoomed #nextImage {
+        right: 10px;
+    }
+
+    #zoomed #prevImage {
+        left: 10px;
+    }
+
     header {
         background-image: none;
         height: 450px;
@@ -1831,11 +1895,6 @@ input::placeholder, textarea::placeholder {
 
     #reviewForm #reviewerMessage {
         width: 100%;
-    }
-
-    .gallery .multiple-items {
-        width: 100%;
-        padding: 0;
     }
 
     .multiple-items .slick-dots {
